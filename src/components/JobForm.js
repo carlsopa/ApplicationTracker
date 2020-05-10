@@ -14,13 +14,20 @@ const JobForm = (props) => {
     setCategory("");
     setDescription("");
     setUrl("");
+    
+    };
+    const ModalClose = (event) => {
+        event.preventDefault();
+        console.log(event.target["className"]);
+        console.log(document.getElementsByClassName("Display modal"))
+        if(event.target["className"] == "Display modal"){
+            props.set(false);
+        }
   };
   return (
     <div
       className={props.modal ? "Display modal" : "modal"}
-      onClick={(e) => {
-        console.log("click");
-      }}
+      onClick={(e) => ModalClose(e)}
     >
       <div className="modal-content">
         <form id="JobForm">

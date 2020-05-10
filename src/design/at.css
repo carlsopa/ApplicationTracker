@@ -6,10 +6,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+    background: rgb(249,249,251);
 }
 .App {
   width: 80vw;
   margin: 0 auto;
+  
 }
 #ApplicationTitle {
   margin: 0 auto;
