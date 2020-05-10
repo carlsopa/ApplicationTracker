@@ -15,60 +15,78 @@ body {
   margin: 0 auto;
   width: 11vw;
 }
-.modal{
+
+.modal {
+  display: none;
   position: fixed;
-  left:0px;
-  top:0px;
-  width:100%;
-  height:100%;
-  background-color:grey;
-  z-index:1;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  z-index: 1;
 }
-.modal-content{
-  width:75%;
-  margin: 0 auto;
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* margin: 0 auto; */
 }
 #JobForm {
+  padding: 50px 25px;
+  background-color: white;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  grid-gap: 15px;
 }
-label#DescriptionLabel{
-background-color:green;
-grid-column:3;
-grid-row:1;
+#JobForm Input {
+  padding: 0px;
+  background-color: grey;
 }
-#Description{
-  grid-column:3;
-  grid-row:2/5;
+label#DescriptionLabel {
+  background-color: green;
+  grid-column: 3;
+  grid-row: 1;
 }
-#SubmitJob {
+#Description {
+  grid-column: 3;
+  grid-row: 2/5;
+}
+#Controls {
   grid-row: 5;
-  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: 1/4;
+  column-gap: 15px;
 }
-.JobTable{
+.JobTable {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  padding:10px;
-  grid-gap:20px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px;
+  grid-gap: 20px;
 }
-.PreviewCard{
-border:1px solid black;
-height:20vh;
-border-radius:5px;
-transition: transform 2s ease-in;
+.PreviewCard {
+  border: 1px solid black;
+  height: 20vh;
+  border-radius: 5px;
+  transition: transform 2s ease-in;
 }
-.Active.PreviewCard{
+.Active.PreviewCard {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
 
   background-color: brown;
-  transform: translateX(50% );
+  transform: translateX(50%);
   /* transform: translateX(50%); */
 }
-.PreviewCard div{
-  width:50%;
+.PreviewCard div {
+  width: 50%;
   margin: 0 auto;
+}
+.Display {
+  display: block;
 }

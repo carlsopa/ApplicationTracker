@@ -16,49 +16,60 @@ const JobForm = (props) => {
     setUrl("");
   };
   return (
-    <div className="modal">
+    <div
+      className={props.modal ? "Display modal" : "modal"}
+      onClick={(e) => {
+        console.log("click");
+      }}
+    >
       <div className="modal-content">
         <form id="JobForm">
-          <label for="company">
-            Company Name</label>
-            <input
-              type="text"
-              id="Company"
-              onChange={(e) => setCompany(e.target.value)}
-            ></input>
-          <label for="Title">
-            Job title</label>
-            <input
-              type="text"
-              id="Title"
-              onChange={(e) => setTitle(e.target.value)}
-            ></input>
-          <label for="Category">
-            Category</label>
-            <select id="Category" onChange={(e) => setCategory(e.target.value)}>
-              <option value="Front End Developer">Front End Developer</option>
-              <option value="Back End Developer">Back End Developer</option>
-              <option value="Non-Developer">Non-Developer</option>
-            </select>
-          <label id="DescriptionLabel" for="Description">
-            Notes</label>
-            <textarea id="Description"
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-
-          <label for="Link">
-            Job link</label>
-            <input
-              type="text"
-              id="Link"
-              onChange={(e) => setUrl(e.target.value)}
-            ></input>
+          <label for="company">Company Name</label>
           <input
-            id="SubmitJob"
-            type="submit"
-            onClick={(e) => FormSubmit(e)}
-            value="click this"
-          />
+            type="text"
+            id="Company"
+            onChange={(e) => setCompany(e.target.value)}
+          ></input>
+          <label for="Title">Job title</label>
+          <input
+            type="text"
+            id="Title"
+            onChange={(e) => setTitle(e.target.value)}
+          ></input>
+          <label for="Category">Category</label>
+          <select id="Category" onChange={(e) => setCategory(e.target.value)}>
+            <option value="Front End Developer">Front End Developer</option>
+            <option value="Back End Developer">Back End Developer</option>
+            <option value="Non-Developer">Non-Developer</option>
+          </select>
+          <label id="DescriptionLabel" for="Description">
+            Notes
+          </label>
+          <textarea
+            id="Description"
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
+
+          <label for="Link">Job link</label>
+          <input
+            type="text"
+            id="Link"
+            onChange={(e) => setUrl(e.target.value)}
+          ></input>
+          <div id="Controls">
+            <input
+              id="SubmitJob"
+              type="submit"
+              onClick={(e) => FormSubmit(e)}
+              value="Submit Job"
+            />
+            <input
+              id="CloseModal"
+              type="submit"
+              onClick={(e) => props.set(false)}
+              value="Close"
+            />
+          </div>
         </form>
       </div>
     </div>
