@@ -15,6 +15,10 @@ But, I did not find anything that I really liked.  They all had their own drawba
 * easily add a new job application
 * easily update current applications with status changes and/or notes
 
+### How it works
+
+Application tracker allows you to keep track of your job searches.  At the top of the screen is a button, that will let you update your job search.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

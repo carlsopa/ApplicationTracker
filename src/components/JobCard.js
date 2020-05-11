@@ -1,33 +1,23 @@
 import React from "react";
 import Modal from "./JobModal";
-//status ideas: applied, phone interview, inperson interview, offered, rejected
 const JobCard = (props) => {
   return props.job ? (
     <Modal set={props.set} reset={props.reset} modal={props.modal}>
-      <div onClick={(e) => props.click}>
-        <div id="Company">Company: {props.job["company"]}</div>
-        <div id="Title">Title: {props.job["title"]}</div>
-        <div id="Description">Description: {props.job["description"]}</div>
-        <div id="Category">Category: {props.job["category"]}</div>
+      <div class="JobCard" onClick={(e) => props.click}>
+        <div id="Company">{props.job["company"]}</div>
+        <div id="Title"><span>Title:</span> <span> {props.job["title"]}</span></div>
+        <div id="Description"><span>Description:</span> <span> Description</span></div>
+        <div id="Category"><span>Category:</span> <span> category</span></div>
         <div id="InterviewLevel">
           Interview process:
           <form>
-            <label>
-              <input type="checkbox" id="Initial" />
-              Initial contact
-            </label>
-            <label>
-              <input type="checkbox" id="Phone" />
-              Phone interview
-            </label>
-            <label>
-              <input type="checkbox" id="Inperson" />
-              Inperson interview
-            </label>
-            <label>
-              <input type="checkbox" id="Offered" />
-              Job offered
-            </label>
+            <select id="StatusSelect">
+              <option value="Phone">Phone interview</option>
+              <option value="Initial">Initial contact</option>
+              <option value="Inperson">Inperson interview</option>
+              <option value="Offered">Job offered</option>
+              <option value="checkbox">Rejected</option>
+            </select>
           </form>
         </div>
         <div id="Notes">
@@ -36,8 +26,25 @@ const JobCard = (props) => {
             <textarea id="Notes"></textarea>
           </form>
         </div>
-        <div id="Url">Job link: {props.job["url"]}</div>
-        <div id="Updated">Last updated: {props.job["update"]}</div>
+        <div id="Url"><span>Job link:</span> <span> {props.job["url"]}</span></div>
+        <div class="Controls" id="Job">
+        <input
+            id="SubmitJob"
+            type="submit"
+           
+            value="Submit Job"
+          />
+          <input
+            id="CloseModal"
+            type="submit"
+            onClick={(e) => {
+              props.set(false);
+              props.reset(null);
+            }}
+            value="Close"
+          />
+        </div>
+        <div id="Updated"><span>Last updated:</span> <span> {props.job["update"]}</span></div>
       </div>
     </Modal>
   ) : null;

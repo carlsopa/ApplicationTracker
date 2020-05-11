@@ -7,9 +7,6 @@ const JobField = (props) => {
     setActive(true);
     props.click(props.id);
   };
-  useEffect(() => {
-    console.log(this);
-  }, [active]);
   return (
     <div
       className={active ? "Active PreviewCard" : "PreviewCard"}

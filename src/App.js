@@ -11,18 +11,22 @@ function App() {
   const [CurrentJob, setCurrentJob] = useState([]);
   const [ShowModal, setShowModal] = useState(false);
   const [ModalType, setModalType] = useState("");
+
   useEffect(() => {
     const LocalData = localStorage.getItem("My-Application");
     if (LocalData) {
       setApplications(JSON.parse(LocalData));
     }
   }, []);
+
   useEffect(() => {
     localStorage.setItem("My-Application", JSON.stringify(Applications));
   }, [Applications]);
+
   useEffect(() => {
     setCurrentJob(Applications[JobId]);
   }, [JobId]);
+
   const NewApplication = (
     event,
     Company,
@@ -59,7 +63,6 @@ function App() {
         },
       ]);
     }
-    console.log(Applications);
   };
   const ModalBoolean = () => {
     setShowModal(true);
