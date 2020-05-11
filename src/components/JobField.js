@@ -1,10 +1,10 @@
 import React, {useState,useEffect} from "react";
-import JobCard from "./JobCard";
 
 const JobField = (props) => {
   const [active,setActive] = useState(false);
   console.log(props.index);
   const ClickEvent=(event)=>{
+    props.setBoolean();
     console.log(event.target.className)
     setActive(true)
     props.click(props.id)

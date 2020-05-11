@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "./JobModal";
 
 const JobForm = (props) => {
   const [Company, setCompany] = useState("");
@@ -25,11 +26,7 @@ const JobForm = (props) => {
         }
   };
   return (
-    <div
-      className={props.modal ? "Display modal" : "modal"}
-      onClick={(e) => ModalClose(e)}
-    >
-      <div className="modal-content">
+    <Modal set={props.set} modal={props.modal}>
         <form id="JobForm">
           <label for="company">Company Name</label>
           <input
@@ -78,8 +75,7 @@ const JobForm = (props) => {
             />
           </div>
         </form>
-      </div>
-    </div>
+      </Modal>
   );
 };
 export default JobForm;

@@ -76,19 +76,19 @@ label#DescriptionLabel {
   border-radius: 5px;
   transition: transform 2s ease-in;
 }
-.Active.PreviewCard {
+/* .Active.PreviewCard {
   position: absolute;
   top: 0;
   left: 0;
 
   background-color: brown;
-  transform: translateX(50%);
+  transform: translateX(50%); */
   /* transform: translateX(50%); */
-}
-.PreviewCard div {
+/* } */
+/* .PreviewCard div {
   width: 50%;
   margin: 0 auto;
-}
+} */
 .Display {
   display: block;
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import JobForm from "./components/JobForm";
 import JobTable from "./components/JobTable";
 import JobCard from "./components/JobCard";
+import JobModal from "./components/JobModal";
 
 import "./design/at.css";
 
@@ -60,14 +61,21 @@ function App() {
     }
     console.log(Applications);
   };
+  const ModalBoolean = () => {
+    setShowModal(true);
+  };
   return (
     <div className="App">
       <header></header>
       <div id="ApplicationTitle">Job Application Tracker</div>
-      <button onClick={(e) => setShowModal(true)}>Submit</button>
+      <button onClick={ModalBoolean}>Submit</button>
       <JobForm click={NewApplication} set={setShowModal} modal={ShowModal} />
-      <JobTable application={Applications} idSet={setJobId} />
-      <JobCard job={CurrentJob} />
+      <JobTable
+        click={ModalBoolean}
+        application={Applications}
+        idSet={setJobId}
+      />
+      <JobCard job={CurrentJob} set={setShowModal} modal={ShowModal} />
     </div>
   );
 }
