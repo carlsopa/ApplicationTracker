@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const JobField = (props) => {
   const ClickEvent = (event) => {
@@ -8,10 +8,10 @@ const JobField = (props) => {
   };
   return (
 
-      <div class="PreviewCard" onClick={(e) => ClickEvent(e)}>
-        <div class="company" id="RowCompany">{props.data["company"]}</div>
-        <div id="RowStatus">Review</div>
-        <div class="update" id="RowUpdated">{props.data["update"]}</div>
+      <div className="PreviewCard" onClick={(e) => ClickEvent(e)}>
+        <div className="company" id="RowCompany">{props.data["company"]}</div>
+        <div id="RowStatus">{props.data["status"]}</div>
+        <div className="update" id="RowUpdated">{props.data["update"]}</div>
       </div>
 
   );

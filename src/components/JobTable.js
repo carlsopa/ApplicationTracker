@@ -3,7 +3,7 @@ import JobField from "./JobField";
 
 const JobTable = (props) => {
   return (
-    <div class="JobTable">
+    <div className="JobTable">
       {props.application
         ? props.application.map((Data, index) => (
             <JobField

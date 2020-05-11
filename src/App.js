@@ -37,8 +37,8 @@ function App() {
   ) => {
     event.preventDefault();
     const CurrentDate = new Date();
-    const CurrentMonth = CurrentDate.getMonth();
-    const CurrentDay = CurrentDate.getDay();
+    const CurrentMonth = CurrentDate.getMonth()+1;
+    const CurrentDay = CurrentDate.getDate();
     if (!Applications) {
       setApplications([
         {
@@ -46,7 +46,7 @@ function App() {
           title: Title,
           category: Category,
           note: Note,
-          status: "Initial",
+          status: "Applied",
           url: Url,
           update: CurrentMonth + "/" + CurrentDay,
         },
@@ -59,7 +59,7 @@ function App() {
           title: Title,
           category: Category,
           note: Note,
-          status: "Initial",
+          status: "Applied",
           url: Url,
           update: CurrentMonth + "/" + CurrentDay,
         },
@@ -72,7 +72,9 @@ function App() {
   const JobUpdate = (notes,status) =>{
     const ApplicationsCopy= [...Applications];
     console.log(ApplicationsCopy);
-    console.log(ApplicationsCopy[JobId])
+    ApplicationsCopy[JobId]["note"] = notes;
+    ApplicationsCopy[JobId]["status"] = status;
+    setApplications(ApplicationsCopy);
   };
   return (
     <div className="App">
