@@ -33,10 +33,15 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  /* margin: 0 auto; */
 }
 .Display {
   display: block;
+}
+.update{
+  color:red;
+}
+.company{
+  font-weight:800;
 }
 /*style for the form to add a new job*/
 #JobForm {
@@ -47,10 +52,11 @@ body {
   grid-template-rows: repeat(3, auto);
   grid-gap: 15px;
   border-radius:2%;
-  border: solid black 1px;
   height:40vh;
-  width:60vw;
+  width:80vw;
+  animation: GrowIn 1s;
 }
+
 #JobForm Input,select {
   padding: 0px;
 
@@ -102,7 +108,11 @@ label#DescriptionLabel {
   border: 1px solid black;
   height: 20vh;
   border-radius: 5px;
-  transition: transform 2s ease-in;
+}
+.PreviewCard:hover{
+  animation: ShadowBox .4s;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+
 }
 /*design for the display of the cards with job information*/
 .JobCard{
@@ -115,6 +125,7 @@ label#DescriptionLabel {
   grid-template-rows: repeat(9,auto);
   grid-auto-flow: column;
   border-radius:2%;
+  animation: GrowIn 1s;
 }
 .JobCard > div{
   align-self: center;
@@ -126,11 +137,31 @@ textarea{
   width:150px;
 }
 #Company{
+  
   display:inline-block;
   margin: 0 auto;
+  font-size:2rem;
+  /* font-weight: 800; */
 }
 #Url{
   grid-template-rows:auto auto;
   grid-template-columns: 1fr;
 }
+/*animation keyframes*/
+@keyframes GrowIn{
+  0%{
+    transform: scale(.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+  }
+  @keyframes ShadowBox{
+    0%{
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100%{
+      box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    }
+  }
 

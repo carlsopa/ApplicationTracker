@@ -13,9 +13,9 @@ const JobField = (props) => {
       onClick={(e) => ClickEvent(e)}
     >
       <div id="PreviewCardData">
-        <div id="RowCompany">{props.data["company"]}</div>
+        <div class="company" id="RowCompany">{props.data["company"]}</div>
         <div id="RowStatus">Review</div>
-        <div id="RowUpdated">{props.data["update"]}</div>
+        <div class="update" id="RowUpdated">{props.data["update"]}</div>
       </div>
     </div>
   );

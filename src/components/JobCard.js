@@ -4,7 +4,7 @@ const JobCard = (props) => {
   return props.job ? (
     <Modal set={props.set} reset={props.reset} modal={props.modal}>
       <div class="JobCard" onClick={(e) => props.click}>
-        <div id="Company">{props.job["company"]}</div>
+        <div class="company" id="Company">{props.job["company"]}</div>
         <div id="Title"><span>Title:</span> <span> {props.job["title"]}</span></div>
         <div id="Description"><span>Description:</span> <span> Description</span></div>
         <div id="Category"><span>Category:</span> <span> category</span></div>
@@ -44,7 +44,7 @@ const JobCard = (props) => {
             value="Close"
           />
         </div>
-        <div id="Updated"><span>Last updated:</span> <span> {props.job["update"]}</span></div>
+        <div class="update" id="Updated"><span>Last updated:</span> <span> {props.job["update"]}</span></div>
       </div>
     </Modal>
   ) : null;
