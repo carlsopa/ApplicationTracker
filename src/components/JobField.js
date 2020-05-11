@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const JobField = (props) => {
-  const [active, setActive] = useState(false);
   const ClickEvent = (event) => {
     props.setBoolean();
     

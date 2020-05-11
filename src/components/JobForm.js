@@ -5,15 +5,15 @@ const JobForm = (props) => {
   const [Company, setCompany] = useState("");
   const [Title, setTitle] = useState("");
   const [Category, setCategory] = useState("");
-  const [Description, setDescription] = useState("");
+  const [Notes, setNotes] = useState("");
   const [Url, setUrl] = useState("");
 
   const FormSubmit = (event) => {
-    props.click(event, Company, Title, Category, Description, Url);
+    props.click(event, Company, Title, Category, Notes, Url);
     setCompany("");
     setTitle("");
     setCategory("");
-    setDescription("");
+    setNotes("");
     setUrl("");
   };
 
@@ -48,11 +48,11 @@ const JobForm = (props) => {
         </div>
         <div id="FormNotes">
           <label id="DescriptionLabel" for="JobDescription">
-            Notes
+            Description/Notes
           </label>
           <textarea
             id="JobDescription"
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => setNotes(e.target.value)}
           ></textarea>
         </div>
 

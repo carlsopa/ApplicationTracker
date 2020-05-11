@@ -32,7 +32,7 @@ function App() {
     Company,
     Title,
     Category,
-    Description,
+    Note,
     Url
   ) => {
     event.preventDefault();
@@ -45,7 +45,8 @@ function App() {
           company: Company,
           title: Title,
           category: Category,
-          description: Description,
+          note: Note,
+          status: "Initial",
           url: Url,
           update: CurrentMonth + "/" + CurrentDay,
         },
@@ -57,7 +58,8 @@ function App() {
           company: Company,
           title: Title,
           category: Category,
-          description: Description,
+          note: Note,
+          status: "Initial",
           url: Url,
           update: CurrentMonth + "/" + CurrentDay,
         },
@@ -66,6 +68,11 @@ function App() {
   };
   const ModalBoolean = () => {
     setShowModal(true);
+  };
+  const JobUpdate = (notes,status) =>{
+    const ApplicationsCopy= [...Applications];
+    console.log(ApplicationsCopy);
+    console.log(ApplicationsCopy[JobId])
   };
   return (
     <div className="App">
@@ -87,13 +94,14 @@ function App() {
           modal={ShowModal}
           type={"form"}
         />
-      ) : (
+      ) : (CurrentJob?(
         <JobCard
+          update={JobUpdate}
           job={CurrentJob}
           reset={setModalType}
           set={setShowModal}
           modal={ShowModal}
-        />
+        />):null
       )}
       <JobTable
         click={ModalBoolean}
