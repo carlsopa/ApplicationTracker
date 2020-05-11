@@ -80,14 +80,14 @@ function App() {
     <div className="App">
       <header></header>
       <div id="ApplicationTitle">Job Application Tracker</div>
-      <button
+      <span id="NewButton"
         onClick={() => {
           ModalBoolean();
           setModalType("form");
         }}
       >
-        Submit
-      </button>
+        Log a new job application
+      </span>
       {ModalType === "form" ? (
         <JobForm
           reset={setModalType}

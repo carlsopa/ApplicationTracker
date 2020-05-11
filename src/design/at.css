@@ -15,7 +15,16 @@ body {
 }
 #ApplicationTitle {
   margin: 0 auto;
-  width: 11vw;
+  width: 22vw;
+  font-size: 2rem;
+}
+#NewButton{
+  background-color:aquamarine;
+  padding: 2px 10px;
+
+border-radius: 30px;
+
+font-size: 1.3rem;
 }
 /*design for the modal card aspect of the application*/
 .modal {
@@ -116,9 +125,10 @@ label#DescriptionLabel {
   animation: ShadowBox .4s;
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
 
+}.PreviewCard > * {
+  justify-self: center;
 }
 #RowUpdated{
-  justify-self: center;
   align-self: end;
 }
 /*design for the display of the cards with job information*/
