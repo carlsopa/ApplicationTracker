@@ -26,7 +26,7 @@ const JobCard = (props) => {
             <textarea id="Notes"></textarea>
           </form>
         </div>
-        <div id="Url"><span>Job link:</span> <span> {props.job["url"]}</span></div>
+        <div id="Url"><span>Job link:</span> <span> {props.job["url"]?<a href={props.job["url"]}>{props.job["url"].substring(0,30)+"..."}</a>:null}</span></div>
         <div class="Controls" id="Job">
         <input
             id="SubmitJob"

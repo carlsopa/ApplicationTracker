@@ -97,6 +97,7 @@ label#DescriptionLabel {
   grid-row: 5;
   grid-column: 1/4;
 }
+/*styling for the display of cards on the page*/
 .JobTable {
   position: relative;
   display: grid;
@@ -108,11 +109,17 @@ label#DescriptionLabel {
   border: 1px solid black;
   height: 20vh;
   border-radius: 5px;
+  display:grid;
+  grid-template-rows: repeat(3 auto);
 }
 .PreviewCard:hover{
   animation: ShadowBox .4s;
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
 
+}
+#RowUpdated{
+  justify-self: center;
+  align-self: end;
 }
 /*design for the display of the cards with job information*/
 .JobCard{
@@ -146,6 +153,12 @@ textarea{
 #Url{
   grid-template-rows:auto auto;
   grid-template-columns: 1fr;
+}
+#Updated{
+  display: inline-block;
+  margin:0 auto;
+  font-size:.75rem;
+  font-weight: 800;
 }
 /*animation keyframes*/
 @keyframes GrowIn{

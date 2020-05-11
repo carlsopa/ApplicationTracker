@@ -24,7 +24,7 @@ const JobForm = (props) => {
           <label for="company">Company Name</label>
           <input
             type="text"
-            id="Company"
+            id="company"
             onChange={(e) => setCompany(e.target.value)}
           ></input>
           <label for="Title">Job title</label>
