@@ -8,7 +8,7 @@ const JobTable = (props) => {
       {props.application
         ? props.application.map((Data, index) => (
             <JobField
-            setBoolean={props.click}
+              setBoolean={props.click}
               data={Data}
               index={index}
               click={props.idSet}

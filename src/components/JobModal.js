@@ -1,14 +1,12 @@
 import React from "react";
 
 const JobModal = (props) => {
-    console.log("Modal")
-    const ModalClose = (event) => {
-        event.preventDefault();
-        console.log(event.target["className"]);
-        console.log(document.getElementsByClassName("Display modal"))
-        if(event.target["className"] == "Display modal"){
-            props.set(false);
-        }
+  const ModalClose = (event) => {
+    event.preventDefault();
+    if (event.target["className"] == "Display modal") {
+      props.set(false);
+      props.reset(null);
+    }
   };
   return (
     <div

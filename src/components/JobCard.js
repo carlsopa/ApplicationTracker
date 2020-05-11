@@ -2,10 +2,9 @@ import React from "react";
 import Modal from "./JobModal";
 //status ideas: applied, phone interview, inperson interview, offered, rejected
 const JobCard = (props) => {
-  console.log(props.job);
   return props.job ? (
-    <Modal set={props.set} modal={props.modal}>
-      <div onClick={(e)=>props.click}>
+    <Modal set={props.set} reset={props.reset} modal={props.modal}>
+      <div onClick={(e) => props.click}>
         <div id="Company">Company: {props.job["company"]}</div>
         <div id="Title">Title: {props.job["title"]}</div>
         <div id="Description">Description: {props.job["description"]}</div>
