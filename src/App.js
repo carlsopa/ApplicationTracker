@@ -76,6 +76,14 @@ function App() {
     ApplicationsCopy[JobId]["status"] = status;
     setApplications(ApplicationsCopy);
   };
+  const JobDelete = (id)=>{
+    console.log(id);
+    const ApplicationsCopy = [...Applications]
+    console.log(ApplicationsCopy)
+    ApplicationsCopy.splice(id,1);
+    console.log(ApplicationsCopy);
+    setApplications(ApplicationsCopy);
+  }
   return (
     <div className="App">
       <header></header>
@@ -103,12 +111,14 @@ function App() {
           reset={setModalType}
           set={setShowModal}
           modal={ShowModal}
+          
         />):null
       )}
       <JobTable
         click={ModalBoolean}
         application={Applications}
         idSet={setJobId}
+        delete={JobDelete}
       />
     </div>
   );

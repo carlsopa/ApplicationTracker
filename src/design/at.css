@@ -121,7 +121,11 @@ label#DescriptionLabel {
   height: 20vh;
   border-radius: 5px;
   display:grid;
-  grid-template-rows: repeat(3 auto);
+  grid-template-rows: repeat(3, auto);
+  position: relative;
+}
+.PreviewCard .company{
+  font-size:1.75rem;
 }
 .declined{
   background-color:#ED4F32;
@@ -135,6 +139,12 @@ label#DescriptionLabel {
 
 }.PreviewCard > * {
   justify-self: center;
+}
+#DeleteX{
+  position: absolute;
+  top:0px;
+  right:5px;
+  font-size: 1.5rem;
 }
 #RowUpdated{
   align-self: end;

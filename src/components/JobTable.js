@@ -12,6 +12,7 @@ const JobTable = (props) => {
               index={index}
               click={props.idSet}
               id={index}
+              delete={props.delete}
             />
           ))
         : null}
