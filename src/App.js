@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import JobForm from "./components/JobForm";
 import JobTable from "./components/JobTable";
 import JobCard from "./components/JobCard";
+import Dashboard from "./components/JobDashboard";
 
 import "./design/at.css";
 
@@ -11,6 +12,7 @@ function App() {
   const [CurrentJob, setCurrentJob] = useState([]);
   const [ShowModal, setShowModal] = useState(false);
   const [ModalType, setModalType] = useState("");
+
 
   useEffect(() => {
     const LocalData = localStorage.getItem("My-Application");
@@ -96,6 +98,7 @@ function App() {
       >
         Log a new job application
       </span>
+      {Applications.length>0?<Dashboard applications={Applications}/>:null}
       {ModalType === "form" ? (
         <JobForm
           reset={setModalType}

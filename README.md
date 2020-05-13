@@ -17,7 +17,20 @@ But, I did not find anything that I really liked.  They all had their own drawba
 
 ### How it works
 
-Application tracker allows you to keep track of your job searches.  At the top of the screen is a button, that will let you update your job search.
+Application tracker allows you to keep track of your job searches.  At the top of the screen is a button, this button will allow you to add a new job to your list of jobs.
+
+Underneith is a display of all your jobs in a color coded fashion for you to quickly identify them.
+* Green- for when you have applied to a job with no further communication
+* Blue- for when you have had some positive action on your application
+* Red- for when you or the company decide that you are not a good fit.
+You update your job search by clicking on each job card.  Here you will be able to see, the company, position, and category of the job that you applied to.  Additionaly, you can add any additional notes, and also change the current status of your application with that company.  Click update to make your changes.  All changes are done updated in real time.
+
+If you get tired of a job being on your screen, you can click the black "X" in the top top right corner to do away with it.  *NOTE: This will permantly get rid of it, without any warning*
+
+## Additional information
+
+This is built using react, as a single page app.  All data is stored in localStorage.  Depending on your system setup this will alter the amount and time of jobs that you can save.  I have included some test data to get you started, it is located at "src/FakeData.json".  Copy this into  your local storage with object name: "My-Application".
+*NOTE* The data does not have to be used, but in order to see the monthly tracking and to give you a jump start I felt the need to inlcude it.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

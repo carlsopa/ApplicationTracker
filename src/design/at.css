@@ -26,6 +26,10 @@ border-radius: 30px;
 
 font-size: 1.3rem;
 }
+#Dashboard{
+  display:grid;
+  grid-auto-flow: column;
+}
 /*design for the modal card aspect of the application*/
 .modal {
   display: none;
@@ -203,6 +207,24 @@ textarea{
     }
     100%{
       box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    }
+  }
+  @keyframes SlideDown{
+    0%{
+      transform: translateY(-500px);
+    }
+    25%{
+      transform: translateY(0)
+    }
+    50%{
+      transform: translateY(0)
+    }
+    75%{
+      transform: translateY(0)
+    }
+    100%{
+      transform: translateY(-500px);
+
     }
   }
 
