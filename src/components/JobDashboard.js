@@ -14,10 +14,8 @@ const Dashboard = (props) => {
     { Category: "Back End Developer", value: 0 },
     { Category: "Non-Developer", value: 0 },
   ];
-  //var Categories=[{Category: "Front End Developer",value: 12},{Category: "Back End Developer",value: 5},{Category: "Non-Developer",value: 9},{Category: "Sideways",value: 3},{Category: "test",value: 2}]
 
   props.applications.map((job, index) => {
-    //console.log(job["category"]);
     const month = job["update"].split("/")[0];
     if (parseInt(month) === new Date().getMonth() + 1) {
       count = count + 1;
@@ -35,11 +33,13 @@ const Dashboard = (props) => {
     } else {
       Status[1]["value"] += 1;
     }
-  });
+    
+  });const setSlide=()=>{
+      props.setslide(true);
+    }
   return (
-    <div id="Dashboard">
-      {console.log(Status)}
-
+    <div id={props.slide?"SlideDown":"Dashboard"}>
+      <div id="MobileDashboardHero" onClick={setSlide()}>Click to expand</div>
       <div id="Totals">
         <div id="MonthTotal">This month you have applied to: {count} jobs</div>
         <div id="TotalTotal">

@@ -7,14 +7,32 @@ const JobForm = (props) => {
   const [Category, setCategory] = useState("");
   const [Notes, setNotes] = useState("");
   const [Url, setUrl] = useState("");
+  const [CompnayError, setCompanyError] = useState(false);
+  const [TitleError, setTitleError] = useState(false);
 
   const FormSubmit = (event) => {
+    //console.log(Company==""||Title=="");
+    if(Company=="" || Title==""){
+      if(Company==""){
+        setCompanyError(true)
+      }
+      if(Title==""){
+        setTitleError(true)
+      }
+      alert("you must enter all the information");
+    } else {
     props.click(event, Company, Title, Category, Notes, Url);
     setCompany("");
     setTitle("");
     setCategory("");
     setNotes("");
     setUrl("");
+    setCompanyError(false);
+    setTitleError(false);
+    props.set(false);
+    props.reset(null);
+
+    }
   };
 
   return (
@@ -23,16 +41,20 @@ const JobForm = (props) => {
         <div id="LeftForm">
           <label htmlFor="company">Company Name</label>
           <input
+          
             type="text"
             id="company"
             onChange={(e) => setCompany(e.target.value)}
           ></input>
+          <div className={CompnayError?"show":"hide"}>Please enter a company name</div>
           <label htmlFor="Title">Job title</label>
           <input
+          
             type="text"
             id="Title"
             onChange={(e) => setTitle(e.target.value)}
           ></input>
+          <div className={TitleError?"show":"hide"}>Please enter a job title</div>
           <label htmlFor="Category">Category</label>
           <select id="Category" onChange={(e) => setCategory(e.target.value)}>
             <option value="Front End Developer">Front End Developer</option>
@@ -62,8 +84,7 @@ const JobForm = (props) => {
             type="submit"
             onClick={(e) => {
               FormSubmit(e);
-              props.set(false);
-              props.reset(null);
+
             }}
             value="Submit Job"
           />

@@ -63,7 +63,7 @@ const JobCard = (props) => {
               props.set(false);
               props.reset(null);
             }}
-            value="Submit Job"
+            value="Update job"
           />
           <input
             id="CloseModal"

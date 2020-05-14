@@ -17,229 +17,278 @@ body {
   font-size: 1.3rem;
 }
 
-  .App {
-    display: grid;
-    grid-template-columns: auto;
-    grid-auto-flow: row;
-    background-color: green;
-    width: 90vw;
-    margin: 0 auto;
+.App {
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-flow: row;
+  background-color: green;
+  width: 90vw;
+  margin: 0 auto;
+}
+#ApplicationTitle {
+  margin: 0 auto;
+  width: 60vw;
+  font-size: 2rem;
+}
+#NewButton {
+  background-color: aquamarine;
+  padding: 2px 10px;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  margin: 0 auto;
+}
+#SlideDown {
+  display: none;
+  animation: SlideDown 1s;
+  background-color: white;
+  margin: 5px;
+  height: 100%;
+  overflow: hidden;
+}
+#Dashboard {
+  display: none;
+  background-color: white;
+  height: 25px;
+  margin: 5px;
+  /* animation: SlideDown 1s; */
+  overflow: hidden;
+  /* grid-auto-flow: column; */
+}
+
+/*design for the modal card aspect of the application*/
+.modal {
+  display: none;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(156, 156, 156, 0.82);
+  z-index: 1;
+}
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 41vh;
+  transform: translate(-50%, -50%);
+}
+/*style for the form to add a new job*/
+#JobForm {
+  padding: 10px;
+  background-color: white;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 15px;
+  border-radius: 2%;
+  height: 50vh;
+  width: 80vw;
+  animation: GrowIn 1s;
+}
+
+#JobForm Input,
+select {
+  padding: 0px;
+
+  height: 25px;
+}
+#LeftForm {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-row-gap: 5px;
+  height: 100%;
+}
+#LeftForm > * {
+  align-self: center;
+}
+
+#FormNotes {
+  display: grid;
+  grid-template-rows: 1fr 8fr;
+  row-gap: 10px;
+}
+#FormNotes > textarea {
+  width: 100%;
+  height: 175px;
+}
+label#DescriptionLabel {
+  justify-self: center;
+}
+div.show{
+  display:inline-block;
+  color:red;
+}
+div.hide{
+  display:none;
+}
+.Controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 15px;
+}
+/*design for the display of the cards with job information*/
+.JobCard {
+  padding: 0px 10px;
+  background-color: white;
+  height: 50vh;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(9, auto);
+  grid-auto-flow: column;
+  border-radius: 2%;
+  animation: GrowIn 1s;
+}
+.JobCard > div {
+  align-self: center;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+textarea {
+  height: 100px;
+  width: 100%;
+}
+#Company {
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+#Url {
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+}
+#Updated {
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+/*styling for the display of cards on the page*/
+.JobTable {
+  position: relative;
+  display: grid;
+  padding: 10px;
+  grid-gap: 20px;
+}
+.PreviewCard {
+  border: 1px solid black;
+  background-color: #15cd72;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+.PreviewCard .company {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 1.75rem;
+}
+#RowStatus {
+  grid-column: 1;
+  grid-row: 2;
+}
+.declined {
+  background-color: #ed4f32;
+}
+.processing {
+  background-color: #288feb;
+}
+.PreviewCard:hover {
+  animation: ShadowBox 0.4s;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+}
+.PreviewCard > * {
+  justify-self: center;
+}
+#DeleteX {
+  grid-column: 3;
+}
+#RowUpdated {
+  grid-row: 1/3;
+  grid-column: 2;
+  align-self: center;
+}
+
+.Display {
+  display: block;
+}
+.update {
+  color: red;
+}
+.company {
+  font-weight: 800;
+}
+/*animation keyframes*/
+@keyframes GrowIn {
+  0% {
+    transform: scale(0.2);
   }
-  #ApplicationTitle {
-    margin: 0 auto;
-    width: 60vw;
-    font-size: 2rem;
+  100% {
+    transform: scale(1);
   }
-  #NewButton {
-    background-color: aquamarine;
-    padding: 2px 10px;
-    border-radius: 30px;
-    font-size: 1.3rem;
-    margin: 0 auto;
+}
+@keyframes ShadowBox {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
-  #Dashboard {
-    display: none;
-    /* grid-auto-flow: column; */
+  100% {
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
   }
-  /*design for the modal card aspect of the application*/
-  .modal {
-    display: none;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
+}
+@keyframes SlideDown {
+  0% {
+    height: 25px;
+  }
+  100% {
     height: 100%;
-    background-color: rgba(156, 156, 156, 0.82);
-    z-index: 1;
   }
-  .modal-content {
-    position: absolute;
-    left: 50%;
-    top: 41vh;
-    transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 600px) {
+  .JobTable {
+    grid-template-columns: 1fr 1fr;
   }
-    /*style for the form to add a new job*/
-    #JobForm {
-      padding: 10px;
-      background-color: white;
-      display: grid;
-      /* grid-template-columns: repeat(2, auto); */
-      grid-template-rows: repeat(3, auto);
-      grid-gap: 15px;
-      border-radius: 2%;
-      height: 50vh;
-      width: 80vw;
-      animation: GrowIn 1s;
-    }
-  
-    #JobForm Input,
-    select {
-      padding: 0px;
-  
-      height: 25px;
-    }
-    #LeftForm {
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-row-gap:5px;
-      height: 100%;
-    }
-    #LeftForm > * {
-      align-self: center;
-    }
-  
-    #FormNotes {
-      display: grid;
-      grid-template-rows: 1fr 8fr;
-      row-gap: 10px;
-    }
-    #FormNotes > textarea {
-      width: 200px;
-      height: 175px;
-    }
-    label#DescriptionLabel {
-      justify-self: center;
-    }
-    .Controls {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 15px;
-    }
-    /*design for the display of the cards with job information*/
   .JobCard {
-    padding: 0px 10px;
-    background-color: white;
-    height: 50vh;
-    width: 80vw;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(9, auto);
-    grid-auto-flow: column;
-    border-radius: 2%;
-    animation: GrowIn 1s;
+    width: 50vw;
+  }
+  .PreviewCard {
+    height: 20vh;
+    position: relative;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: none;
+  }
+  #RowStatus {
+    grid-row: 2;
+    grid-column: 1;
+    align-self: center;
+  }
+  #DeleteX {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 1.5rem;
+  }
+  #RowUpdated {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: center;
+    align-self: end;
+  }
+  .PreviewCard .company {
+    font-size: 1.75rem;
+    align-self: center;
+    justify-self: center;
+  }
+  #LeftForm {
+    grid-template-columns: 1fr 5fr;
   }
   .JobCard > div {
-    align-self: center;
-    display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
   }
-  textarea {
-    height: 100px;
-    width: 150px;
-  }
-  #Company {
-    display: inline-block;
-    margin: 0 auto;
-    font-size: 2rem;
-    /* font-weight: 800; */
-  }
-  #Url {
-    grid-template-rows: auto auto;
-    grid-template-columns: 1fr;
-  }
-  #Updated {
-    display: inline-block;
-    margin: 0 auto;
-    font-size: 0.75rem;
-    font-weight: 800;
-  }
-    /*styling for the display of cards on the page*/
-    .JobTable {
-      position: relative;
-      display: grid;
-      /* grid-template-columns: repeat(4, 1fr); */
-      padding: 10px;
-      grid-gap: 20px;
-    }
-    .PreviewCard {
-      border: 1px solid black;
-      background-color: #15cd72;
-      /* height: 20vh; */
-      border-radius: 5px;
-      display: grid;
-      grid-template-columns: repeat(3, auto);
-      /* position: relative; */
-    }
-    .PreviewCard .company {
-      grid-column:1;
-      grid-row:1;
-      font-size: 1.75rem;
-    }
-    #RowStatus{
-      grid-column:1;
-      grid-row:2;
-    }
-    .declined {
-      background-color: #ed4f32;
-    }
-    .processing {
-      background-color: #288feb;
-    }
-    .PreviewCard:hover {
-      animation: ShadowBox 0.4s;
-      box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-    }
-    .PreviewCard > * {
-      justify-self: center;
-    }
-    #DeleteX {
-      grid-column:3;
-      /* position: absolute;
-      top: 0px;
-      right: 5px;
-      font-size: 1.5rem; */
-    }
-    #RowUpdated {
-      grid-row:1/3;
-      grid-column:2;
-      align-self: center;
-    }
- 
-    .Display {
-      display: block;
-    }
-    .update {
-      color: red;
-    }
-    .company {
-      font-weight: 800;
-    }
-    /*animation keyframes*/
-  @keyframes GrowIn {
-    0% {
-      transform: scale(0.2);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes ShadowBox {
-    0% {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-    100% {
-      box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-    }
-  }
-  @keyframes SlideDown {
-    0% {
-      transform: translateY(-500px);
-    }
-    25% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(0);
-    }
-    75% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-500px);
-    }
-  }
-
+}
 @media screen and (min-width: 900px) {
+  .JobTable {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1100px) {
   .App {
     width: 80vw;
     margin: 0 auto;
@@ -253,7 +302,7 @@ body {
     grid-auto-flow: column;
   }
   /*design for the modal card aspect of the application*/
-  
+
   .modal-content {
     top: 50%;
     transform: translate(-50%, -50%);
@@ -281,11 +330,6 @@ body {
   label#DescriptionLabel {
     justify-self: center;
   }
-  .Controls {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 15px;
-  }
   #Form {
     grid-row: 5;
     grid-column: 1/4;
@@ -294,20 +338,9 @@ body {
   .JobTable {
     grid-template-columns: repeat(4, 1fr);
   }
-  .PreviewCard {
 
-    height: 20vh;
-
-
-  }
   .PreviewCard .company {
     font-size: 1.75rem;
-  }
-  .declined {
-    background-color: #ed4f32;
-  }
-  .processing {
-    background-color: #288feb;
   }
   .PreviewCard:hover {
     animation: ShadowBox 0.4s;
@@ -327,8 +360,12 @@ body {
   }
   /*design for the display of the cards with job information*/
   .JobCard {
-    height: 80vh;
-    width: 60vw;
+    width: 50vw;
   }
-  
+  .JobCard > div {
+    grid-template-columns: 1fr 3fr;
+  }
+  #Job.Controls {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -12,6 +12,7 @@ function App() {
   const [CurrentJob, setCurrentJob] = useState([]);
   const [ShowModal, setShowModal] = useState(false);
   const [ModalType, setModalType] = useState("");
+  const [ShowData, setShowData] = useState(false);
 
 
   useEffect(() => {
@@ -98,7 +99,7 @@ function App() {
       >
         Log a new job application
       </span>
-      {Applications.length>0?<Dashboard applications={Applications}/>:null}
+      {Applications.length>0?<Dashboard slide={ShowData} setslide={setShowData} applications={Applications}/>:null}
       {ModalType === "form" ? (
         <JobForm
           reset={setModalType}
