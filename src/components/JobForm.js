@@ -15,11 +15,14 @@ const JobForm = (props) => {
     if(Company=="" || Title==""){
       if(Company==""){
         setCompanyError(true)
+      } else{
+        setCompanyError(false);
       }
       if(Title==""){
         setTitleError(true)
+      } else {
+        setTitleError(false)
       }
-      alert("you must enter all the information");
     } else {
     props.click(event, Company, Title, Category, Notes, Url);
     setCompany("");
@@ -40,6 +43,7 @@ const JobForm = (props) => {
       <form id="JobForm">
         <div id="LeftForm">
           <label htmlFor="company">Company Name</label>
+          <div class="InputError">
           <input
           
             type="text"
@@ -47,7 +51,9 @@ const JobForm = (props) => {
             onChange={(e) => setCompany(e.target.value)}
           ></input>
           <div className={CompnayError?"show":"hide"}>Please enter a company name</div>
+          </div>
           <label htmlFor="Title">Job title</label>
+          <div class="InputError">
           <input
           
             type="text"
@@ -55,6 +61,7 @@ const JobForm = (props) => {
             onChange={(e) => setTitle(e.target.value)}
           ></input>
           <div className={TitleError?"show":"hide"}>Please enter a job title</div>
+          </div>
           <label htmlFor="Category">Category</label>
           <select id="Category" onChange={(e) => setCategory(e.target.value)}>
             <option value="Front End Developer">Front End Developer</option>

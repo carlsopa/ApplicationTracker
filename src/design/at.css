@@ -6,7 +6,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background: rgb(249, 249, 251);
+  background: rgb(241, 242, 251);
 }
 
 #NewButton {
@@ -21,7 +21,7 @@ body {
   display: grid;
   grid-template-columns: auto;
   grid-auto-flow: row;
-  background-color: green;
+  /* background-color: green; */
   width: 90vw;
   margin: 0 auto;
 }
@@ -80,7 +80,7 @@ body {
   grid-template-rows: repeat(3, auto);
   grid-gap: 15px;
   border-radius: 2%;
-  height: 50vh;
+  height: 53vh;
   width: 80vw;
   animation: GrowIn 1s;
 }
@@ -99,6 +99,9 @@ select {
 }
 #LeftForm > * {
   align-self: center;
+}
+.InputError{
+  display:grid;
 }
 
 #FormNotes {
