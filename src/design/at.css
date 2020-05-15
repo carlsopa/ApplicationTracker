@@ -129,6 +129,10 @@ div.hide{
   column-gap: 15px;
 }
 /*design for the display of the cards with job information*/
+#SortForm{
+  display:grid;
+  /* grid-template-columns:repeat(2, auto); */
+}
 .JobCard {
   padding: 0px 10px;
   background-color: white;
@@ -190,6 +194,7 @@ textarea {
 }
 .declined {
   background-color: #ed4f32;
+  color:black;
 }
 .processing {
   background-color: #288feb;
@@ -213,9 +218,7 @@ textarea {
 .Display {
   display: block;
 }
-.update {
-  color: red;
-}
+
 .company {
   font-weight: 800;
 }
