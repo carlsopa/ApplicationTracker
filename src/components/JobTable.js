@@ -8,9 +8,8 @@ const JobTable = (props) => {
   const [SortedBoolean, setSortedBoolean] = useState(false);
 
   useEffect(() => {
-    console.log("effect")
     var data = [];
-    
+
     props.application.map((Applications, index) => {
       if (Category != "all") {
         setSortedBoolean(true);
@@ -31,27 +30,24 @@ const JobTable = (props) => {
           setSortedBoolean(true);
           data.push(Applications);
         }
-        
       }
-      if(Category == "all" && Status=="all"){
-        setSortedBoolean(false)
+      if (Category == "all" && Status == "all") {
+        setSortedBoolean(false);
       }
       setSortedData(data);
-
     });
   }, [Status, Category]);
-  
-  
+
   return (
     <div id="SortForm">
-      <label for="CategorySort">Sort by category: </label>
+      <label for="CategorySort">Filter by category: </label>
       <select id="CategorySort" onChange={(e) => setCategory(e.target.value)}>
         <option value="all">all</option>
         <option value="Front End Developer">Front-End Developer</option>
         <option value="Back End Developer">Back-End Developer</option>
         <option value="Non-Developer">Other</option>
       </select>
-      <label for="StatusSort">Sort by application status: </label>
+      <label for="StatusSort">Filter by application status: </label>
       <select id="StatusSort" onChange={(e) => setStatus(e.target.value)}>
         <option value="all">All</option>
         <option value="Applied">Applied</option>
@@ -61,8 +57,8 @@ const JobTable = (props) => {
       </select>
       <div className="JobTable">
         {SortedBoolean
-        ? SortedData.map((Data,index)=>(
-          <JobField
+          ? SortedData.map((Data, index) => (
+              <JobField
                 setBoolean={props.click}
                 data={Data}
                 index={index}
@@ -70,7 +66,8 @@ const JobTable = (props) => {
                 id={index}
                 delete={props.delete}
               />
-        )):props.application
+            ))
+          : props.application
           ? props.application.map((Data, index) => (
               <JobField
                 setBoolean={props.click}
@@ -82,20 +79,6 @@ const JobTable = (props) => {
               />
             ))
           : null}
-        {
-        // props.application
-        //   ? props.application.map((Data, index) => (
-        //       <JobField
-        //         setBoolean={props.click}
-        //         data={Data}
-        //         index={index}
-        //         click={props.idSet}
-        //         id={index}
-        //         delete={props.delete}
-        //       />
-        //     ))
-        //   : null
-          }
       </div>
     </div>
   );

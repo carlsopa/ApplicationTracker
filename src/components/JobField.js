@@ -15,9 +15,11 @@ const JobField = (props) => {
         
         props.data["status"] === "Declined"
           ? "PreviewCard declined"
-          : props.data["status"] !== "Applied"
-          ? "PreviewCard processing"
-          : "PreviewCard"
+          : props.data["status"] === "Job offered"
+          ? "PreviewCard offered"
+          : props.data["status"] ==="Applied"
+          ?"PreviewCard"
+          : "PreviewCard processing"
       }
       onClick={(e) => ClickEvent(e)}
     ><span id="DeleteX" >X</span>

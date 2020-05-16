@@ -5,6 +5,7 @@ import JobCard from "./components/JobCard";
 import Dashboard from "./components/JobDashboard";
 
 import "./design/at.css";
+import init from "./data/FakeData.json"
 
 function App() {
   const [Applications, setApplications] = useState([]);
@@ -17,8 +18,11 @@ function App() {
 
   useEffect(() => {
     const LocalData = localStorage.getItem("My-Application");
+    console.log(LocalData.length)
     if (LocalData) {
       setApplications(JSON.parse(LocalData));
+    } if(LocalData.length<=2) {
+      setApplications(init);
     }
   }, []);
 

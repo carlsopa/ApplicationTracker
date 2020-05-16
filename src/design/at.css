@@ -199,6 +199,9 @@ textarea {
 .processing {
   background-color: #288feb;
 }
+.offered{
+  background-color: #EDE04D;
+}
 .PreviewCard:hover {
   animation: ShadowBox 0.4s;
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
