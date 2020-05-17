@@ -18,12 +18,18 @@ function App() {
 
   useEffect(() => {
     const LocalData = localStorage.getItem("My-Application");
-    console.log(LocalData.length)
+    console.log(typeof(LocalData))
     if (LocalData) {
-      setApplications(JSON.parse(LocalData));
-    } if(LocalData.length<=2) {
-      setApplications(init);
+      const ParsedData = JSON.parse(LocalData);
+     if(ParsedData!=[]) {
+             setApplications(ParsedData);
+     } else {
+             setApplications(init);
+
+     }
+
     }
+  
   }, []);
 
   useEffect(() => {
@@ -128,6 +134,9 @@ function App() {
         idSet={setJobId}
         delete={JobDelete}
       />
+      <div>
+        You can access the code repo for this project at: <a target="_blank" href="https://github.com/carlsopa/ApplicationTracker">Application Tracker</a>
+      </div>
     </div>
   );
 }
