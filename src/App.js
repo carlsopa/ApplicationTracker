@@ -8,9 +8,11 @@ import ResumeBuilder from "./components/resume_builder/resume";
 
 import "./design/at.css";
 import init from "./data/FakeData.json";
+import initResume from "./data/resume.json";
 
 function App() {
   const [Applications, setApplications] = useState([]);
+  const [Resume, setResume] = useState({});
   const [JobId, setJobId] = useState("");
   const [CurrentJob, setCurrentJob] = useState([]);
   const [ShowModal, setShowModal] = useState(false);
@@ -18,21 +20,40 @@ function App() {
   const [ShowData, setShowData] = useState(false);
 
   useEffect(() => {
-    const LocalData = localStorage.getItem("My-Application");
-    console.log(typeof LocalData);
-    if (LocalData) {
-      const ParsedData = JSON.parse(LocalData);
-      if (ParsedData != []) {
+     const LocalData = localStorage.getItem("My-Application");
+     const LocalProfile = localStorage.getItem("My-Resume");
+     if(LocalData){
+       var ParsedData = JSON.parse(LocalData);
+       if(ParsedData.length!=0){
         setApplications(ParsedData);
-      } else {
-        setApplications(init);
-      }
-    }
+       } else {
+         setApplications(init);
+       }
+     }
+     else{
+      localStorage.setItem("My-Application",JSON.stringify(init));
+      setApplications(init);
+     }
+     if(LocalProfile){
+       var ParsedData = JSON.parse(LocalProfile);
+       if(Object.keys(ParsedData).length!=0){
+        setResume(ParsedData)
+       } else {
+        setResume(initResume)
+       }
+     } else {
+      localStorage.setItem("My-Resume",JSON.stringify(initResume));
+      setResume(initResume);
+     }
+
   }, []);
 
   useEffect(() => {
     localStorage.setItem("My-Application", JSON.stringify(Applications));
   }, [Applications]);
+  useEffect(()=>{
+    localStorage.setItem("My-Resume",JSON.stringify(initResume));
+  },[Resume])
 
   useEffect(() => {
     setCurrentJob(Applications[JobId]);
@@ -88,6 +109,13 @@ function App() {
     console.log(ApplicationsCopy);
     setApplications(ApplicationsCopy);
   };
+  const ResumeUpdate=(event)=>{
+    event.preventDefault();
+    const ResumeCopy=Resume;
+    ResumeCopy['basics']['profiles'].push({Network:'',url:''})
+    console.log(ResumeCopy);
+    setResume(ResumeCopy);
+  }
   return (
     <div className="App">
       <header>
@@ -97,7 +125,8 @@ function App() {
               Resume
             </Link>
             <Route path="/resume">
-              <ResumeBuilder />
+              {Object.keys(Resume).length!=0?<ResumeBuilder
+              Data={Resume} Change={ResumeUpdate} />:null}
             </Route>
           </BrowserRouter>
         }
@@ -113,13 +142,15 @@ function App() {
       >
         Log a new job application
       </span>
-      {Applications.length > 0 ? (
-        <Dashboard
-          slide={ShowData}
-          setslide={setShowData}
-          applications={Applications}
-        />
-      ) : null}
+      {
+      // Applications.length > 0 ? (
+      //   <Dashboard
+      //     slide={ShowData}
+      //     setslide={setShowData}
+      //     applications={Applications}
+      //   />
+      // ) : null
+      }
       {ModalType === "form" ? (
         <JobForm
           reset={setModalType}

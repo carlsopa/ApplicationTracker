@@ -2,7 +2,6 @@ import React from "react";
 import JobPieChart from "./JobChart";
 
 const Dashboard = (props) => {
-  console.log(props.applications);
   var count = 0;
   var Status = [
     { Category: "Applied", value: 0 },
@@ -25,7 +24,6 @@ const Dashboard = (props) => {
         data["value"] += 1;
       }
     });
-    console.log(job["status"]);
     if (job["status"] == "Applied") {
       Status[0]["value"] += 1;
     } else if (job["status"] == "Declined") {

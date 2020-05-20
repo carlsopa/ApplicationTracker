@@ -11,27 +11,27 @@ const JobTable = (props) => {
     var data = [];
 
     props.application.map((Applications, index) => {
-      if (Category != "all") {
+      if (Category !== "all") {
         setSortedBoolean(true);
-        if (Status != "all") {
+        if (Status !== "all") {
           if (
-            Applications.category == Category &&
-            Applications.status == Status
+            Applications.category === Category &&
+            Applications.status === Status
           ) {
             data.push(Applications);
           }
         } else {
-          if (Applications.category == Category) {
+          if (Applications.category === Category) {
             data.push(Applications);
           }
         }
       } else {
-        if (Applications.status == Status) {
+        if (Applications.status === Status) {
           setSortedBoolean(true);
           data.push(Applications);
         }
       }
-      if (Category == "all" && Status == "all") {
+      if (Category === "all" && Status === "all") {
         setSortedBoolean(false);
       }
       setSortedData(data);
@@ -40,14 +40,14 @@ const JobTable = (props) => {
 
   return (
     <div id="SortForm">
-      <label for="CategorySort">Filter by category: </label>
+      <label htmlFor="CategorySort">Filter by category: </label>
       <select id="CategorySort" onChange={(e) => setCategory(e.target.value)}>
         <option value="all">all</option>
         <option value="Front End Developer">Front-End Developer</option>
         <option value="Back End Developer">Back-End Developer</option>
         <option value="Non-Developer">Other</option>
       </select>
-      <label for="StatusSort">Filter by application status: </label>
+      <label htmlFor="StatusSort">Filter by application status: </label>
       <select id="StatusSort" onChange={(e) => setStatus(e.target.value)}>
         <option value="all">All</option>
         <option value="Applied">Applied</option>
