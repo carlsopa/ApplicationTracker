@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Route, Link, BrowserRouter } from "react-router-dom";
 import JobForm from "./components/JobForm";
 import JobTable from "./components/JobTable";
 import JobCard from "./components/JobCard";
 import Dashboard from "./components/JobDashboard";
+import ResumeBuilder from "./components/resume_builder/resume";
 
 import "./design/at.css";
-import init from "./data/FakeData.json"
+import init from "./data/FakeData.json";
 
 function App() {
   const [Applications, setApplications] = useState([]);
@@ -15,21 +17,17 @@ function App() {
   const [ModalType, setModalType] = useState("");
   const [ShowData, setShowData] = useState(false);
 
-
   useEffect(() => {
     const LocalData = localStorage.getItem("My-Application");
-    console.log(typeof(LocalData))
+    console.log(typeof LocalData);
     if (LocalData) {
       const ParsedData = JSON.parse(LocalData);
-     if(ParsedData!=[]) {
-             setApplications(ParsedData);
-     } else {
-             setApplications(init);
-
-     }
-
+      if (ParsedData != []) {
+        setApplications(ParsedData);
+      } else {
+        setApplications(init);
+      }
     }
-  
   }, []);
 
   useEffect(() => {
@@ -40,17 +38,10 @@ function App() {
     setCurrentJob(Applications[JobId]);
   }, [JobId]);
 
-  const NewApplication = (
-    event,
-    Company,
-    Title,
-    Category,
-    Note,
-    Url
-  ) => {
+  const NewApplication = (event, Company, Title, Category, Note, Url) => {
     event.preventDefault();
     const CurrentDate = new Date();
-    const CurrentMonth = CurrentDate.getMonth()+1;
+    const CurrentMonth = CurrentDate.getMonth() + 1;
     const CurrentDay = CurrentDate.getDate();
     if (!Applications) {
       setApplications([
@@ -82,26 +73,39 @@ function App() {
   const ModalBoolean = () => {
     setShowModal(true);
   };
-  const JobUpdate = (notes,status) =>{
-    const ApplicationsCopy= [...Applications];
+  const JobUpdate = (notes, status) => {
+    const ApplicationsCopy = [...Applications];
     console.log(ApplicationsCopy);
     ApplicationsCopy[JobId]["note"] = notes;
     ApplicationsCopy[JobId]["status"] = status;
     setApplications(ApplicationsCopy);
   };
-  const JobDelete = (id)=>{
+  const JobDelete = (id) => {
     console.log(id);
-    const ApplicationsCopy = [...Applications]
-    console.log(ApplicationsCopy)
-    ApplicationsCopy.splice(id,1);
+    const ApplicationsCopy = [...Applications];
+    console.log(ApplicationsCopy);
+    ApplicationsCopy.splice(id, 1);
     console.log(ApplicationsCopy);
     setApplications(ApplicationsCopy);
-  }
+  };
   return (
     <div className="App">
-      <header></header>
+      <header>
+        {
+          <BrowserRouter>
+            <Link target={"_blank"} to="/resume">
+              Resume
+            </Link>
+            <Route path="/resume">
+              <ResumeBuilder />
+            </Route>
+          </BrowserRouter>
+        }
+      </header>
       <div id="ApplicationTitle">Job Application Tracker</div>
-      <span id="NewButton"
+
+      <span
+        id="NewButton"
         onClick={() => {
           ModalBoolean();
           setModalType("form");
@@ -109,7 +113,13 @@ function App() {
       >
         Log a new job application
       </span>
-      {Applications.length>0?<Dashboard slide={ShowData} setslide={setShowData} applications={Applications}/>:null}
+      {Applications.length > 0 ? (
+        <Dashboard
+          slide={ShowData}
+          setslide={setShowData}
+          applications={Applications}
+        />
+      ) : null}
       {ModalType === "form" ? (
         <JobForm
           reset={setModalType}
@@ -118,16 +128,15 @@ function App() {
           modal={ShowModal}
           type={"form"}
         />
-      ) : (CurrentJob?(
+      ) : CurrentJob ? (
         <JobCard
           update={JobUpdate}
           job={CurrentJob}
           reset={setModalType}
           set={setShowModal}
           modal={ShowModal}
-          
-        />):null
-      )}
+        />
+      ) : null}
       <JobTable
         click={ModalBoolean}
         application={Applications}
@@ -135,7 +144,13 @@ function App() {
         delete={JobDelete}
       />
       <div>
-        You can access the code repo for this project at: <a target="_blank" href="https://github.com/carlsopa/ApplicationTracker">Application Tracker</a>
+        You can access the code repo for this project at:{" "}
+        <a
+          target="_blank"
+          href="https://github.com/carlsopa/ApplicationTracker"
+        >
+          Application Tracker
+        </a>
       </div>
     </div>
   );
