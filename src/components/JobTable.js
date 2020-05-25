@@ -11,27 +11,27 @@ const JobTable = (props) => {
     var data = [];
 
     props.application.map((Applications, index) => {
-      if (Category != "all") {
+      if (Category !== "all") {
         setSortedBoolean(true);
-        if (Status != "all") {
+        if (Status !== "all") {
           if (
-            Applications.category == Category &&
-            Applications.status == Status
+            Applications.category === Category &&
+            Applications.status === Status
           ) {
             data.push(Applications);
           }
         } else {
-          if (Applications.category == Category) {
+          if (Applications.category === Category) {
             data.push(Applications);
           }
         }
       } else {
-        if (Applications.status == Status) {
+        if (Applications.status === Status) {
           setSortedBoolean(true);
           data.push(Applications);
         }
       }
-      if (Category == "all" && Status == "all") {
+      if (Category === "all" && Status === "all") {
         setSortedBoolean(false);
       }
       setSortedData(data);

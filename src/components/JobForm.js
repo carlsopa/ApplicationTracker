@@ -12,13 +12,13 @@ const JobForm = (props) => {
 
   const FormSubmit = (event) => {
     //console.log(Company==""||Title=="");
-    if(Company=="" || Title==""){
-      if(Company==""){
+    if(Company==="" || Title===""){
+      if(Company===""){
         setCompanyError(true)
       } else{
         setCompanyError(false);
       }
-      if(Title==""){
+      if(Title===""){
         setTitleError(true)
       } else {
         setTitleError(false)
