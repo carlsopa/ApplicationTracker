@@ -4,6 +4,7 @@ import ProfileInformation from "./profiles";
 import WorkInformation from "./work";
 
 const ResumeForm = (props) => {
+  console.log(props.Data);
 
   // const accordion = (event) =>{
   //   const NextElement = event.target.nextElementSibling;
@@ -16,9 +17,11 @@ const ResumeForm = (props) => {
   return (
     <div className="accordion">
       <form id="ResumeForm">
-        <BasicInformation Data={props.Data['basics']}/>
+        
+         <BasicInformation Data={props.Data['basics']}/>
         <ProfileInformation Data={props.Data['basics']} Change={props.Change}/>
-        <WorkInformation Data={props.Data['work']}/>       
+        <WorkInformation Data={props.Data['work']}/>        
+        
       </form>
     </div>
   );

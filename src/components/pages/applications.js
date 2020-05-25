@@ -1,8 +1,10 @@
 import React, {useState,useEffect} from "react";
-import JobForm from "../JobForm";
-import JobTable from "../JobTable";
-import JobCard from "../JobCard";
+import JobForm from "../Applications/JobForm";
+import JobTable from "../Applications/JobTable";
+import JobCard from "../Applications/JobCard";
 //import Dashboard from "./components/JobDashboard";
+
+import init from '../../data/FakeData.json';
 
 function Applications(props) {
 
@@ -13,6 +15,22 @@ function Applications(props) {
   const [ShowModal, setShowModal] = useState(false);
   const [ModalType, setModalType] = useState("");
   const [ShowData, setShowData] = useState(false);
+
+  const LocalData = localStorage.getItem("My-Application");
+useEffect(()=>{
+  if(LocalData){
+         var ParsedData = JSON.parse(LocalData);
+         if(ParsedData.length!=0){
+          setApplications(ParsedData);
+         } else {
+           setApplications(init);
+         }
+       }
+       else{
+        localStorage.setItem("My-Application",JSON.stringify(init));
+        setApplications(init);
+       }
+      },[]);
 
   const NewApplication = (event, Company, Title, Category, Note, Url) => {
     event.preventDefault();

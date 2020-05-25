@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import SingleProfile from "./individual_profile";
 
 const ProfileInformation = (props) => {
+console.log("proflie render");
   const [ProfilesBoolean, setProfilesBoolean] = useState(false);
   const [profiles, setProfiles] = useState(props.Data['profiles'])
 
   const FieldAdd = (event)=>{
-    //   event.preventDefault();
-      const copy = profiles;
-      copy.push({Network:'',url:''})
-      setProfiles(copy);
+      event.preventDefault();
+       setProfiles(prev=>[...prev,{Network:'',url:''}])
+  }
+
+  function CreateInput(){
+      return profiles.map((data, index) =><SingleProfile index={index} data={data} />)
   }
 
   const accordion = (event) => {
@@ -34,10 +37,12 @@ const ProfileInformation = (props) => {
 
       <div className="AccordionContent">
         <div className="AccordionBody">
-          {profiles.map((data, index) => (
+          {
+          profiles.map((data, index) => (
             <SingleProfile index={index} data={data} />
-          ))}
-          <button id="ProfileAdd" onClick={(e) => FieldAdd(e)}>
+          ))
+          }
+          <button id="ProfileAdd" onClick={(e) => {FieldAdd(e)}}>
             Add a profile
           </button>
         </div>
