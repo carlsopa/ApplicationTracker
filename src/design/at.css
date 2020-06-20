@@ -13,22 +13,25 @@ body {
   background-color: aquamarine;
   padding: 2px 10px;
   border-radius: 30px;
-
   font-size: 1.3rem;
+}
+#NewButton:hover {
+  animation: ShadowBox 0.4s;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
 }
 
 .App {
   display: grid;
   grid-template-columns: auto;
   grid-auto-flow: row;
-  /* background-color: green; */
   width: 90vw;
   margin: 0 auto;
 }
 #ApplicationTitle {
   margin: 0 auto;
-  width: 60vw;
   font-size: 2rem;
+  padding-bottom:5px;
+  
 }
 #NewButton {
   background-color: aquamarine;
@@ -36,6 +39,11 @@ body {
   border-radius: 30px;
   font-size: 1.3rem;
   margin: 0 auto;
+  cursor: pointer;
+}
+#NewButton:hover {
+  animation: ShadowBox 0.4s;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
 }
 #SlideDown {
   display: none;
@@ -50,9 +58,7 @@ body {
   background-color: white;
   height: 25px;
   margin: 5px;
-  /* animation: SlideDown 1s; */
   overflow: hidden;
-  /* grid-auto-flow: column; */
 }
 
 /*design for the modal card aspect of the application*/
@@ -131,7 +137,6 @@ div.hide{
 /*design for the display of the cards with job information*/
 #SortForm{
   display:grid;
-  /* grid-template-columns:repeat(2, auto); */
 }
 .JobCard {
   padding: 0px 10px;
@@ -182,11 +187,13 @@ textarea {
   border-radius: 5px;
   display: grid;
   grid-template-columns: repeat(3, auto);
+  cursor: pointer;
 }
 .PreviewCard .company {
   grid-column: 1;
   grid-row: 1;
   font-size: 1.75rem;
+  padding-top:10px;
 }
 #RowStatus {
   grid-column: 1;
@@ -262,6 +269,7 @@ textarea {
     position: relative;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: none;
+    cursor: pointer;
   }
   #RowStatus {
     grid-row: 2;
@@ -284,6 +292,7 @@ textarea {
     font-size: 1.75rem;
     align-self: center;
     justify-self: center;
+    padding-top:10px;
   }
   #LeftForm {
     grid-template-columns: 1fr 5fr;
@@ -349,12 +358,14 @@ textarea {
   }
 
   .PreviewCard .company {
+    padding-top:10px;
     font-size: 1.75rem;
   }
   .PreviewCard:hover {
     animation: ShadowBox 0.4s;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
   }
+  
   .PreviewCard > * {
     justify-self: center;
   }
